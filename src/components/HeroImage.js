@@ -43,7 +43,10 @@ const styles = StyleSheet.create({
     color: 'white',
     textShadow: 'black',
     textDecoration: 'underline',
-    fontFamily: heroFont.fontFamily
+    fontFamily: heroFont.fontFamily,
+    backgroundColor: 'rgb(0,0,0,0.7)',
+    padding: '.2em',
+    borderRadius: '15px'
   }
 })
 
