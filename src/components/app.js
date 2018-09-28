@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
-import Header from '../containers/Header';
+import HeroImage from './HeroImage';
+import { StyleSheet, css } from 'aphrodite';
 
 export default class App extends Component {
   render() {
     return (
-      <div>
-       <Header />      
+      <div className={css(styles.bodyStyle)}>
+       <HeroImage />
       </div>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  bodyStyle: {
+    width: '100%',
+    margin: '0'
+
+  }
+})

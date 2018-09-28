@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import Header from '../containers/Header';
+import { StyleSheet, css } from 'aphrodite';
 
 import App from './components/app';
 import reducers from './reducers';
