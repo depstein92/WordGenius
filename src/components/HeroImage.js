@@ -36,13 +36,14 @@ const styles = StyleSheet.create({
     backgroundSize: 'cover'
   },
   HeroImageTitle: {
-    left: '25%',
+    left: '30%',
     position: 'absolute',
-    fontSize: '5em',
-    top: '30%',
+    fontSize: '7em',
+    top: '45%',
     color: 'white',
-    textShadow: 'black 1px',
-    fontFamily: heroFont
+    textShadow: 'black',
+    textDecoration: 'underline',
+    fontFamily: heroFont.fontFamily
   }
 })
 
