@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 import { Segment, Button } from 'semantic-ui-react';
-
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return(
@@ -32,7 +32,11 @@ const About = () => {
        <br />
        <br />
        <br />
-       <Button content='Try WordGenius' icon='right arrow' labelPosition='right' />
+       <Link to="/TextAnalyzer">
+        <Button content='Try WordGenius'
+                icon='right arrow'
+                labelPosition='right' />
+       </Link>
       </Segment>
     </div>
   )
@@ -68,7 +72,6 @@ const style = StyleSheet.create({
   paragraph: {
     fontSize: '2em',
     fontFamily: font.fontFamily
-
   }
 })
 
