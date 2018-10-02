@@ -1,30 +1,33 @@
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: './client/index.js',
   output: {
-    path: __dirname,
-    publicPath: '/',
+    path: '/',
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
-        exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['react', 'es2015', 'stage-1']
-        }
+        use: 'babel-loader',
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/
+      },
+      {
+        use: ['style-loader', 'css-loader'],
+        test: /\.css$/
       }
-    ]
+    ],
+    loaders: [{
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+        }],
   },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
-  devServer: {
-    historyApiFallback: true,
-    contentBase: './',
-    watchOptions: {
-      aggregateTimeout: 300,
-      poll: 1000
-    }
-  }
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'client/index.html'
+    })
+  ]
 };

@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from 'aphrodite';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { evaluateText } from '../actions/index';
 import { Form,
          TextArea,
          Header,
@@ -101,9 +98,5 @@ const styles = StyleSheet.create({
   }
 })
 
-const mapDispatchToProps = dispatch => {
- return bindActionCreators({ evaluateText }, dispatch)
-}
 
-
-export default  connect(null, mapDispatchToProps)(TextAnalyzer);
+export default TextAnalyzer;
