@@ -19,6 +19,11 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
+  node: {
+  fs: 'empty',
+  net: 'empty',
+  tls: 'empty'
+},
   devServer: {
     historyApiFallback: true,
     contentBase: './',
