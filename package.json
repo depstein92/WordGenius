@@ -23,7 +23,9 @@
   },
   "dependencies": {
     "aphrodite": "^2.2.3",
-    "apollo-client": "^2.4.2",
+    "apollo-client": "^0.8.1",
+    "apollo-fetch": "^0.7.0",
+    "apollo-link": "^1.2.3",
     "axios": "^0.18.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-1": "^6.1.18",

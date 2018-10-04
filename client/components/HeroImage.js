@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     position: 'absolute',
-    backgroundImage: 'url(../style/images/HeroImage.jpeg)',
+    backgroundImage: 'url(https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fquinncreative.files.wordpress.com%2F2013%2F12%2Fdefault.jpg&f=1)',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover'
   },

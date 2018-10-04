@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from 'aphrodite';
 import { Link } from 'react-router-dom';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 import { Form,
          TextArea,
          Header,
@@ -61,6 +63,25 @@ class TextAnalyzer extends React.Component{
    )
  }
 }
+
+/*/*
+A) Identify data
+B) Write Query in GraphiQL (double check) and in component file
+C) Bond query and component
+D) Access data!
+
+
+const query = gql`
+ {
+   songs{
+    title
+   }
+}
+
+`;
+
+export default graphql(query)(SongList); //C)
+*/
 
 
 const styles = StyleSheet.create({
