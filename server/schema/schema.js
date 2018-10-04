@@ -2,7 +2,9 @@
 const graphql = require('graphql');
 const { GraphQLSchema,
         GraphQLString,
-        GraphQLObjectType } = require('graphql');
+        GraphQLObjectType,
+        GraphQLInputObjectType,
+        GraphQLNonNull } = require('graphql');
 
 /*https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/node.html?node#introduction*/
 
@@ -18,18 +20,15 @@ var text = 'Team, I know that times are tough! Product '
   + 'quarters. We have a competitive product, but we '
   + 'need to do a better job of selling it!'
 
-var toneParams = {
-  'tone_input': { 'text': text },
-  'content_type': 'application/json'
-};
 
-toneAnalyzer.tone(toneParams, function (error, toneAnalysis) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(JSON.stringify(toneAnalysis, null, 2));
+const TextType = new GraphQLInputObjectType({
+  name:'TextType',
+  fields: {
+    text: {
+      type: GraphQLString
+    }
   }
-});
+})
 
 
 const RootQueryType = new GraphQLObjectType({
@@ -37,9 +36,21 @@ const RootQueryType = new GraphQLObjectType({
   fields: () => ({
     text: {
       type: GraphQLString,
-      args: { type: { GraphQLString } },
+      args: { text: { type: new GraphQLNonNull(TextType)   } },
       resolve(parentValue, args){
-        return args; //add get request
+
+        var toneParams = {
+          'tone_input': { 'text': args },
+          'content_type': 'application/json'
+        };
+
+        toneAnalyzer.tone(toneParams, function (error, toneAnalysis) {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log(JSON.stringify(toneAnalysis, null, 2));
+          }
+        });
       }
     }
   })

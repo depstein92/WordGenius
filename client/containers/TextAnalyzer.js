@@ -119,5 +119,12 @@ const styles = StyleSheet.create({
   }
 })
 
+const query = gql`
+ {
+   text{
+     text
+   }
+}`;
 
-export default TextAnalyzer;
+
+export default graphql(query)(TextAnalyzer);
