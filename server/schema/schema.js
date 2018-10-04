@@ -6,20 +6,13 @@ const { GraphQLSchema,
         GraphQLInputObjectType,
         GraphQLNonNull } = require('graphql');
 
-/*https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/node.html?node#introduction*/
 
-var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
+const ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 
 var toneAnalyzer = new ToneAnalyzerV3({
   'version_date': '2017-09-21',
-  'iam_apikey': '{apikey}'
+  'iam_apikey': `${process.env.DB_API_USERNAME}`
 });
-
-var text = 'Team, I know that times are tough! Product '
-  + 'sales have been disappointing for the past three '
-  + 'quarters. We have a competitive product, but we '
-  + 'need to do a better job of selling it!'
-
 
 const TextType = new GraphQLInputObjectType({
   name:'TextType',
